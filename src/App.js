@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import react, {Component}from 'react';
+import Login from './components/login';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Email from './components/Email';
+import AddEmail  from './components/AddEmail';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Switch>
+      <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/send_email">
+          <Email />
+        </Route>
+        <Route path="/add_email_acount">
+          <AddEmail />
+        </Route>
+       
+      </Switch>
+    </BrowserRouter>
+  </div>
+);
 }
 
 export default App;
